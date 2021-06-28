@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹配符</title>
+</head>
+<body>
+    <script>
+        var str1 = 'abc123cde';   
+        // 匹配符 \d 匹配任何一个数字 -- \D 匹配任何一个非数字
+        var reg1 = /\d/;
+        console.log(str1.replace(reg1, '*'))  // abc*23cde
+        var reg2 = /\D/;
+        console.log(str1.replace(reg2, '*'))  // *bc123cde
+
+        var str2 = '_*'
+        // 匹配符 \w 匹配任何字母数字和下划线 -- \W 匹配任何一个非字母数字及下划线
+        var reg3 = /\w/;
+        console.log(str2.replace(reg3, '*'))  // **
+        var reg4 = /\W/;
+        console.log(str2.replace(reg4, '*'))  // _*
+
+        var str3 = ' 1'
+        // 匹配符 \s 匹配任何空字符 -- \S 匹配任何一个非空字符
+        var reg5 = /\s/;
+        console.log(str3.replace(reg5, '*'))  // *1
+        var reg6 = /\S/;
+        console.log(str3.replace(reg6, '*'))  //  *
+
+        var str4 = '1'
+                // 匹配符 . 匹配任何除回车之外的字符
+        var reg7 = /./;
+        console.log(str4.replace(reg7, '*'))  // *
+    </script>
+</body>
+</html>

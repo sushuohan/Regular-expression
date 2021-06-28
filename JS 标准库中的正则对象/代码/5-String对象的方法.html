@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 对象的方法</title>
+</head>
+<body>
+    <script>
+        var str = 'abc123cde';
+        var reg = /c/g;  // 全局匹配
+        
+        // search 方法返回值是一个索引 -- 查询符合正则的字符串首次出现的位置
+        var a = str.search(reg)
+        console.log(a)  // 2
+
+        // match 方法返回值是一个数组 -- 数组里是匹配的结果
+        var b = str.match(reg)
+        console.log(b)  // ["c", "c"]
+
+        // replace 方法返回值是一个新的字符串 -- 第一个参数是 reg -- 第二个参数是修改后的字符串
+        var c = str.replace(reg, '*')
+        console.log(c)  // ab*123*de
+
+        // split 方法返回值是一个列表 -- 根据某 reg 分割字符串
+        var d = str.split(reg)
+        console.log(d)  // ["ab", "123", "de"]
+    </script>
+</body>
+</html>

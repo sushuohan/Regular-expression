@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹配区间</title>
+</head>
+<body>
+    <script>
+        var str1 = '123abcd';
+        // 表示匹配 1 或 2 字符
+        var reg1 = /[12]/;
+        console.log(str1.replace(reg1, '*')) // *23abcd
+
+        // 表示匹配 a 到 z 字符
+        var reg2 = /[a-z]/;
+        console.log(str1.replace(reg2, '*')) // 123*bcd
+
+        // 表示匹配 0 到 9 字符
+        var reg3 = /[0-9]/;
+        console.log(str1.replace(reg3, '*')) // *23abcd
+
+        // 脱字符 ^ 表示字符区间取反
+        // 表示匹配除 1 和 2 之外的字符
+        var reg4 = /[^12]/;
+        console.log(str1.replace(reg4, '*')) // 12*abcd
+
+        var str2 = '苏';
+        // 表示匹配任意汉字
+        var reg5 = /[\u4e00-\u9fa5]/;
+        console.log(str2.replace(reg5, '*')) // *
+    </script>
+</body>
+</html>

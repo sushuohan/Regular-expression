@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从哪查</title>
+</head>
+<body>
+    <script>
+        // 单词的切分
+        var str1 = 'It is a cool dog.';
+        var reg1 = /\b\w+\b/g;
+        console.log(str1.match(reg1))  // 数组：0: "It" 1: "is" 2: "a" 3: "cool" 4: "dog"
+
+        // 字符串的识别 -- 我的目的是识别一个正确的 QQ 号
+        var str2 = 'q483517937q';
+        // 如果我们使用如下正则 -- 检测结果显然是错误的
+        var reg2 = /[1-9]\d{4,9}/;
+        console.log(str2.match(reg2))  // ["483517937", index: 1, input: "q483517937q", groups: undefined]
+
+        // 此处我们借用 ^ 和 $ 来判断字符串的首位和末位
+        // 如果我们使用如下正则 -- 检测结果是正确的
+        var reg3 = /^[1-9]\d{4,9}$/;
+        console.log(str2.match(reg3));  // null
+    </script>
+</body>
+</html>

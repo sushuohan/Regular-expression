@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        var str1 = 'A'
+        var str2 = 'babab'
+
+        // i 修饰符表示忽略查询过程中的大小写问题
+        var reg1 = /a/i;  // 字母量声明正则对象时修饰符添加的位置
+        var reg2 = new RegExp('a', 'i')  // 构造函数时修饰符添加的位置
+        // g 修饰符表示查询全部
+        var reg3 = /b/g;  // 字母量声明正则对象时修饰符添加的位置
+        var reg4 = new RegExp('b', 'g')  // 构造函数时修饰符添加的位置
+
+        console.log(reg1.test(str1))  // 存在此字符串 -- 则返回 true
+        console.log(reg2.test(str1))  // 存在此字符串 -- 则返回 true
+
+        // String 对象的 replace 方法返回值是一个新的字符串 -- 且符合全局替换规则
+        console.log(str2.replace(reg3, '*'))  // *a*a*
+        console.log(str2.replace(reg4, '*'))  // *a*a*
+    </script>
+</body>
+</html>

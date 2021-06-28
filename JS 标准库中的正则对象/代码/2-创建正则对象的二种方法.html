@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建正则对象的二种方法</title>
+</head>
+<body>
+    <script>
+        var str1 = 'abc123cdf'
+        var str2 = 'abc12cdf'
+
+        // 定义一个正则(二种方法) -- 字母量形式和函数创建形式
+        var reg1 = /3/;
+        var reg2 = new RegExp('3')
+
+        // 调用正则的 test 方法 -- 用来判断某字符串中是否有符合该正则的子字符串
+        console.log(reg1.test(str1))  // 存在此字符串 -- 则返回 true
+        console.log(reg2.test(str2))  // 不存在此字符串 -- 则返回 false
+    </script>
+</body>
+</html>

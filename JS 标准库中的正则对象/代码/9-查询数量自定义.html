@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查多少</title>
+</head>
+<body>
+    <script>
+        // 遵循贪婪查询原则 -- 原则上查询的位数越多越好
+
+        // 语法：\d{m,n} -- \d 表示查询数字 -- m 表示至少查询 m 位数字 -- n 表示至多查询 n 位数字
+        var str1 = '我的QQ号是：483517937 和 1314520521'
+        // 全局范围内查找第一位是数字 1 到 9 -- 至少含有 5 位数字 -- 至多含有 10 位数字的子字符串
+        var reg1 = /[1-9]\d{4,9}/g;  
+        console.log(str1.match(reg1))  // ["483517937", "1314520521"]
+        
+        /* 语法：\d* -- \d 表示查询数字 -- * 表示至少查询 1 位
+                \d+ -- \d 表示查询数字 -- + 表示至少查询 2 位
+                \d? -- \d 表示查询数字 -- ? 表示只能查询 1 位或 2 位
+                */
+        var reg2 = /[1-9]\d*/g;
+        var reg3 = /[1-9]\d+/g;
+        var reg4 = /[1-9]\d?/g;
+
+        var str2 = '2a22'
+        console.log(str2.match(reg2))  // ["2", "22"]
+        console.log(str2.match(reg3))  // ["22"]
+        console.log(str1.match(reg4))  // ["48", "35", "17", "93", "7", "13", "14", "52", "52", "1"]
+    </script>
+</body>
+</html>

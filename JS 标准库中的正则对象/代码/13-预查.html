@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预查</title>
+</head>
+<body>
+    <script>
+        var str = 'When i am studying,he is reading'
+        // 需求：字符串中含有 ing 结尾的词根找出来
+        var reg1 = /\b\w+ing\b/g;
+        console.log(str.match(reg1));  // ["studying", "reading"]
+
+        // 正向预查 -- 正预测 -- 前瞻 -- 先行断言
+        var reg2 = /\b\w+(?=ing\b)/g;  
+        console.log(str.match(reg2)); //  ["study", "read"]
+
+        // 需求：字符串中不是以 ing 结尾的词找出来
+        // 负向预查 -- 负预测 -- 前瞻 -- 先行否定
+        var reg3 = /\b\w+(?!ing)\w{3}\b/g;  
+        console.log(str.match(reg3)); //  ["When"]
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转义字符</title>
+</head>
+<body>
+    <script>
+        /* \w+ 匹配 http
+            : 匹配 ：
+            \/\/ 匹配 //
+            \w+ 匹配 xiaosu
+            \. 匹配 .
+            \w+ 匹配 com
+            */
+        var str = 'http://xiaosu.com';
+        var reg = /\w+:\/\/\w+\.\w+/;
+        console.log(str.match(reg))  // "http://xiaosu.com"
+    </script>
+</body>
+</html>

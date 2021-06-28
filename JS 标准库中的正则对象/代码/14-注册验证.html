@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册验证</title>
+    <style>
+        input{
+            height: 20px;
+            width: 350px;
+        }
+        .hide{
+            display: none;
+        }
+        .inp_red{
+            border: 1px solid red;
+        }
+        .inp_green{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    用户名：<br>
+    <input type="text" id="inp_name"><br>
+    <span class="hide" value=''></span><br>
+    邮箱：<br>
+    <input type="text" id="inp_email"><br>
+    <span class="hide"></span><br>
+    密码：<br>
+    <input type="text" id="inp_pwd"><br>
+    <span class="hide"></span><br>
+    重复密码：<br>
+    <input type="text" id="inp_re"><br>
+    <span class="hide"></span><br>
+    <button>提交</button>
+    <script>
+        var input_element = document.getElementsByTagName('input');
+        var span_element = document.getElementsByTagName('span');
+
+        function changeColor(id, color, txt){
+            this.className = 'inp_' + color;
+            span_element[id].className = '';
+            span_element[id].style.color = color;
+            span_element[id].innerHTML = txt;
+        }
+        for(var i=0;i<input_element.length;i++){
+            input_element[i].addEventListener('blur', function(){
+                if(this.id == 'inp_name'){
+                    if(this.value == ''){
+                    changeColor(0, 'red', '用户名不能为空')
+                }else if(this.value.length < 3){
+                    changeColor(0, 'red', '用户名长度不够')
+                }else{
+                    changeColor(0, 'green', '√')
+                }}
+
+                if(this.id == 'inp_email'){
+                    var reg = /\w+@\w+\.\w{2,6}/;
+                    if(this.value == ''){
+                    changeColor(1, 'red', '邮箱不能为空')
+                }else if(!reg.test(this.value)){
+                    changeColor(1, 'red', '邮箱格式不正确')
+                }else{
+                    changeColor(1, 'green', '√')
+                }}
+
+                if(this.id == 'inp_pwd'){
+                    if(this.value == ''){
+                    changeColor(2, 'red', '密码不能为空')
+                }else if(this.value.length < 3){
+                    changeColor(2, 'red', '密码长度不够')
+                }else{
+                    changeColor(2, 'green', '√')
+                }}
+
+                if(this.id == 'inp_re'){
+                    if(this.value == ''){
+                    changeColor(3, 'red', '密码不能为空')
+                }else if(this.value.length < 3){
+                    changeColor(3, 'red', '密码长度不够')
+                }else if(this.value != input_element[2].value){
+                    changeColor(3, 'red', '二次密码不一致')
+                }else{
+                    changeColor(3, 'green', '√')
+                }}
+            })
+        }
+    </script>
+</body>
+</html>

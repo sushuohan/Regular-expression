@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则概述</title>
+</head>
+<body>
+    <img src="./resource/images/Girl.jpg" alt="">
+    <script>
+        var img = document.querySelector('img');  // 通过标签名称获取元素
+        img.onclick =  function(){
+            console.log(this.src.indexOf('Girlsa.jpg'))
+            console.log(this.src)  // 打印该图片的 src 属性
+            // indexOf 字符串查找 -- 返回值是字符串首次出现的位置
+            if(this.src.indexOf('Girl.jpg') > 0){
+                console.log(this.src.indexOf('Girl.jpg'))
+                this.src = './resource/images/Sky.jpg';
+            }else{
+                this.src = './resource/images/Girl.jpg';
+            }
+        };
+    </script>
+</body>
+</html>

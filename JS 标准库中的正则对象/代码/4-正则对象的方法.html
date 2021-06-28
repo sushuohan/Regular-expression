@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则对象的方法</title>
+</head>
+<body>
+    <script>
+        var str = 'abc123cde';
+        var reg = /123/;
+        console.log(reg.test(str))  //  符合正则规则 -- 返回值布尔值 true
+        
+        a = reg.exec(str)
+        console.log(a.length)  //  符合正则规则 -- 符合一个数组 -- 数组里有查询到的字符串
+        for(var i=0;i<a.length;i++){
+            console.log(a[i])  // 123
+        }
+    </script>
+</body>
+</html>
