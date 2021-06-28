@@ -3,17 +3,17 @@
 
 # 如何创建正则对象
 * 字面量形式 
-var reg = /3/;
+```var reg = /3/;```
 * 函数创建形式
-var reg = new RegExp('3');
+```var reg = new RegExp('3');```
 
 # 匹配模式 -- 也就是修饰符
 ## 修饰符
 * i 忽视大小写
 * g 全局查找
 ## 用法
-var reg = /3/i;
-var reg = new RegExp('3', 'g')
+```var reg = /3/i;```
+```var reg = new RegExp('3', 'g')```
 
 # 正则对象的方法
 * test()
